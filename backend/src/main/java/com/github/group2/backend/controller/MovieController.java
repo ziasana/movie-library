@@ -2,9 +2,7 @@ package com.github.group2.backend.controller;
 
 import com.github.group2.backend.dto.MovieDTO;
 import com.github.group2.backend.service.MovieService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class MovieController {
     @GetMapping
     public List<MovieDTO> getMovies() {
         return movieService.getAllMovies();
+    }
+
+    @GetMapping("/{id}")
+    public MovieDTO getMovie(@PathVariable String id) {
+        return movieService.getMovieById(id);
     }
 
 }

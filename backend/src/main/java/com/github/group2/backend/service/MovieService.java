@@ -1,6 +1,7 @@
 package com.github.group2.backend.service;
 
 import com.github.group2.backend.dto.MovieDTO;
+import com.github.group2.backend.entity.Movie;
 import com.github.group2.backend.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -23,5 +24,9 @@ public class MovieService {
                         movie.getGenre()
                 ))
                 .toList();
+    }
+
+    public MovieDTO getMovieById(String id) {
+       return movieRepository.getMovieById(id);
     }
 }
