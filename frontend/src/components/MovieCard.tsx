@@ -5,10 +5,22 @@ interface MovieCardProps {
     onClick: () => void
 }
 
-export default function MovieCard({onClick, title, genre}: MovieCardProps) {
+
+
+export default function MovieCard({ title, genre, poster, onClick }: MovieCardProps) {
     return (
-        <div onClick={onClick} style={{textAlign: 'center', marginTop: '1rem', color: 'limegreen'}}>
-            <strong>{title} – {genre}</strong>
+        <div onClick={onClick}className="movie-card">
+            {poster ? (
+                <img src={poster} alt={title} className="movie-poster" />
+            ) : (
+                <div className="movie-poster placeholder">
+                    No Image
+                </div>
+            )}
+            <div className="movie-info">
+                <h2>{title}</h2>
+                <p>{genre}</p>
+            </div>
         </div>
     );
 }
