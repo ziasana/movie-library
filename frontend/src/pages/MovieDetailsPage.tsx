@@ -1,11 +1,11 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {type MovieDTO} from "../api/movies.ts";
 import axios from "axios";
+import type {Movie} from "../type/movie.ts";
 
 export default function MovieDetailsPage() {
 const {publicId} = useParams();
-const [movie,setMovie] = useState<MovieDTO |null>(null);
+const [movie,setMovie] = useState<Movie |null>(null);
 const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -34,21 +34,15 @@ const [isLoading, setIsLoading] = useState(true);
     }
 
     return (
-        <>
-            <div className="movie-card" style={{ boxSizing:"border-box"}}>
-                {movie.poster ? (
-                    <img src={movie.poster} alt={movie.title} className="movie-poster" />
-                ) : (
-                    <div className="movie-poster placeholder">
-                        No Image
-                    </div>
-                )}
-                <div className="movie-info">
-                    <h2>{movie.title}</h2>
-                    <p>{movie.genre}</p>
-                    <p><strong>Imdb:</strong>{movie.publicId}</p>
-                </div>
+        <div className="movie-card" style={{boxSizing: "border-box"}}>
+            <div className="movie-poster placeholder">
+                No Image
             </div>
-        </>
+            <div className="movie-info">
+                <h2>{movie.title}</h2>
+                <p>{movie.genre}</p>
+                <p><strong>Imdb:</strong>{movie.publicId}</p>
+            </div>
+        </div>
     )
 }

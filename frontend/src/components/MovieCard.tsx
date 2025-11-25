@@ -8,9 +8,9 @@ interface MovieCardProps {
 
 
 
-export default function MovieCard({ title, genre, poster, onClick }: MovieCardProps) {
+export default function MovieCard({ title, genre, poster, onClick }: Readonly<MovieCardProps>) {
     return (
-        <div onClick={onClick} className="movie-card">
+        <button onClick={onClick} className="movie-card">
             {poster ? (
                 <img src={poster} alt={title} className="movie-poster" />
             ) : (
@@ -22,6 +22,6 @@ export default function MovieCard({ title, genre, poster, onClick }: MovieCardPr
                 <h2>{title}</h2>
                 <p>{genre}</p>
             </div>
-        </div>
+        </button>
     );
 }
