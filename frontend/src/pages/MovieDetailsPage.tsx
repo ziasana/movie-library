@@ -10,9 +10,9 @@ const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if(!publicId) {
-            setIsLoading(false);
             return;
         }
+
        axios.get(`/api/movies/${publicId}`)
            .then(res => setMovie(res.data))
            .catch(err => console.log(err))
