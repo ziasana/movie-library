@@ -20,7 +20,7 @@ class MovieServiceTest {
     @Test
     void getAllMovies_shouldReturnMappedDTOs() {
         // GIVEN
-        Movie movie = new Movie("1", "Inception", "Sci-Fi");
+        Movie movie = new Movie("1", "1","Inception", "Sci-Fi");
         when(movieRepository.findAll()).thenReturn(List.of(movie));
 
         // WHEN

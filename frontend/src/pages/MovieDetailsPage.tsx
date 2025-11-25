@@ -35,10 +35,19 @@ const [isLoading, setIsLoading] = useState(true);
 
     return (
         <>
-            <div>
-                <h2>{movie.title}</h2>
-                <p>{movie.genre}</p>
-                <p>{movie.publicId}</p>
+            <div className="movie-card" style={{ boxSizing:"border-box"}}>
+                {movie.poster ? (
+                    <img src={movie.poster} alt={movie.title} className="movie-poster" />
+                ) : (
+                    <div className="movie-poster placeholder">
+                        No Image
+                    </div>
+                )}
+                <div className="movie-info">
+                    <h2>{movie.title}</h2>
+                    <p>{movie.genre}</p>
+                    <p><strong>Imdb:</strong>{movie.publicId}</p>
+                </div>
             </div>
         </>
     )

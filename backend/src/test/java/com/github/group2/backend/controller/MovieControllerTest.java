@@ -27,7 +27,7 @@ class MovieControllerTest {
 
     @Test
     void getAllMovies_shouldReturnListOfMovies() throws Exception {
-        MovieDTO response =new MovieDTO("Movie 1", "Arthouse");
+        MovieDTO response =new MovieDTO("1","Movie 1", "Arthouse");
 
         when(movieService.getAllMovies())
                 .thenReturn(List.of(response));
