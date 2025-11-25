@@ -21,9 +21,10 @@ public class MovieController {
         return movieService.getAllMovies();
     }
 
-    @GetMapping("/{id}")
-    public MovieDTO getMovie(@PathVariable String id) {
-        return movieService.getMovieById(id);
+    @GetMapping("/{publicId}")
+    public MovieDTO getMovie(@PathVariable String publicId) {
+        return movieService.getMovieByPublicId(publicId);
+
     }
 
 }
