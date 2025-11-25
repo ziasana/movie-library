@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export interface MovieDTO {
+    publicId : string;
     title: string;
     genre: string;
 }

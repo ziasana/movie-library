@@ -4,7 +4,6 @@ import com.github.group2.backend.dto.MovieDTO;
 import com.github.group2.backend.entity.Movie;
 import com.github.group2.backend.repository.MovieRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
