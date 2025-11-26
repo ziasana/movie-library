@@ -28,7 +28,7 @@ export default function Add() {
                 className="max-w-md bg-white p-6 rounded shadow space-y-4"
             >
                 <div>
-                    <label className="block mb-1 font-medium">Title</label>
+                    <label htmlFor="title" className="block mb-1 font-medium">Title</label>
                     <input
                         type="text"
                         name="title"
@@ -40,7 +40,7 @@ export default function Add() {
                 </div>
 
                 <div>
-                    <label className="block mb-1 font-medium">Genre</label>
+                    <label htmlFor="genre" className="block mb-1 font-medium">Genre</label>
                     <input
                         type="text"
                         name="genre"
