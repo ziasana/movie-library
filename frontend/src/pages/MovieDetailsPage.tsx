@@ -41,7 +41,7 @@ const [isLoading, setIsLoading] = useState(true);
             <div className="movie-info">
                 <h2>{movie.title}</h2>
                 <p>{movie.genre}</p>
-                <p><strong>Imdb:</strong>{movie.publicId}</p>
+                <p><strong>Imdb:</strong>{movie.id}</p>
             </div>
         </div>
     )

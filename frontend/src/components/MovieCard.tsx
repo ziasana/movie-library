@@ -1,5 +1,5 @@
 interface MovieCardProps {
-    publicId: string,
+    id: string,
     title: string;
     genre: string;
     poster?: string,

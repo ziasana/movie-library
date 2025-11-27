@@ -1,6 +1,5 @@
 export interface Movie {
-    id?: number;
-    publicId?: string;
+    id: string;
     title: string;
     genre: string;
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type {Movie} from "../../type/movie.ts";
 import {addMovie} from "../../api/movies.ts";
+import * as React from "react";
 
 export default function Add() {
-    const [formData, setFormData] = useState<Movie>({title: "", genre: ""});
+    const [formData, setFormData] = useState<Movie>({id: "", title: "", genre: ""});
     const [isSaved, setIsSaved] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,10 +14,10 @@ export default function Add() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         alert(`Form submitted:\nTitle: ${formData?.title}\nGenre: ${formData?.genre}`);
-        setFormData({ title: "", genre: "" });
+        setFormData({ id: "", title: "", genre: "" });
          addMovie(formData).then((result) => {
-             console.log("Movie added", result);
              setIsSaved(true);
+             console.log("Movie added", result, isSaved);
          })
 
     };

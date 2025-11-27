@@ -15,8 +15,8 @@ export default function Index() {
             .finally(() => setLoading(false));
     }, []);
 
-    function handleMovieClick(publicId:string) {
-        navigate(`/movies/${publicId}`);
+    function handleMovieClick(id:string) {
+        navigate(`/movies/${id}`);
     }
 
     if (loading) {
@@ -35,7 +35,7 @@ export default function Index() {
                 {movies.map((m) => (
                     <MovieCard
                        onClick={() => handleMovieClick(m.id)}
-                        publicId={m.id}
+                        id={m.id}
                         key={m.id}
                         title={m.title}
                         genre={m.genre}
