@@ -36,7 +36,6 @@ jobs:
           name: frontend-build
           path: backend/src/main/resources/static
 
-      - name: Setup JDK
       - uses: actions/setup-java@v5
         with:
           java-version: "21"
