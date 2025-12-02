@@ -70,4 +70,13 @@ class MovieServiceTest {
         assertEquals("Sci-Fi", result.getGenre());
         verify(movieRepository, times(1)).save(any(Movie.class));
     }
+
+    @Test
+    void deleteMovie_shouldCallRepository() {
+        String publicId = "1";
+        movieService.deleteMovie(publicId);
+        verify(movieRepository, times(1)).deleteById(publicId);
+        verifyNoMoreInteractions(movieRepository);
+    }
+
 }
