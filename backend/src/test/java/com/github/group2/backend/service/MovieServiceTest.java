@@ -79,4 +79,36 @@ class MovieServiceTest {
         verifyNoMoreInteractions(movieRepository);
     }
 
+    @Test
+    void updateMovie_shouldUpdateMovie() {
+        String id = "1";
+        Movie existingMovie = new Movie(id, "Old Title", "Old Genre");
+        MovieDTO update = new MovieDTO("1","New Title", "New Genre");
+
+        Movie saved =  new Movie(id, "New Title", "New Genre");
+
+        when(movieRepository.findById("1")).thenReturn(Optional.of(existingMovie));
+        when(movieRepository.save(existingMovie)).thenReturn(saved);
+
+        Movie result = movieService.updateMovie(id, update);
+
+        assertEquals("New Title", result.getTitle());
+        assertEquals("New Genre", result.getGenre());
+        assertEquals("1", result.getId());
+        verify(movieRepository).findById(id);
+
+    }
+
+    @Test
+    void updateMovie_shouldThrowNotFound_whenMissing() {
+
+        String id = "999";
+        MovieDTO update = new MovieDTO("1","New Title", "New Genre");
+        when(movieRepository.findById(id)).thenReturn(Optional.empty());
+        assertThrows(RuntimeException.class, () -> movieService.updateMovie(id, update));
+
+        verify(movieRepository).findById(id);
+        verify(movieRepository, never()).save(any());
+    }
+
 }
