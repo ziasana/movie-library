@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import MovieDetailsPage from "./pages/MovieDetailsPage.tsx";
+import EditMovie from "./pages/Movie/edit.tsx";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                   <Route path="/movie" element={<Movies />} />
                   <Route path="/movie/add" element={<Add />} />
                   <Route path={"/movies/:publicId"} element={<MovieDetailsPage/>}/>
+                  <Route path={"/movies/edit/:id"} element={<EditMovie/>}/>
                   <Route path="/login" element={<Login />} />
               </Routes>
           <Footer />
