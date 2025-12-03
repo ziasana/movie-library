@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 @Service
@@ -41,6 +42,18 @@ public class MovieService {
 
     public void deleteMovie(String publicId) {
         movieRepository.deleteById(publicId);
+    }
+
+    public Movie updateMovie(String id,  MovieDTO movieDto) {
+      return movieRepository.findById(id).map(
+              currentMovie -> {
+                  currentMovie.setTitle(movieDto.title());
+                  currentMovie.setGenre(movieDto.genre());
+                  return movieRepository.save(currentMovie);
+              })
+              .orElseThrow(() -> new NoSuchElementException("no movie with id " + id + " found"));
+
+
     }
 
 }
