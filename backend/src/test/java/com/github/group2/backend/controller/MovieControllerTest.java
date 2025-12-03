@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -90,6 +91,34 @@ class MovieControllerTest {
                         .content(requestJson))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title").value("New Movie"))
+                .andExpect(jsonPath("$.genre").value("Action"));
+    }
+
+    @Test
+    void updateMovie_shouldReturnUpdatedMovie() throws Exception {
+        // GIVEN
+        String id = "123";
+
+        MovieDTO updateDto = new MovieDTO(id, "Updated Movie", "Action");
+        Movie updatedMovie = new Movie(id, "Updated Movie", "Action");
+
+        String requestJson = """
+            {
+              "id": "123",
+              "title": "Updated Movie",
+              "genre": "Action"
+            }
+            """;
+
+        when(movieService.updateMovie(id, updateDto)).thenReturn(updatedMovie);
+
+        // WHEN + THEN
+        mockMvc.perform(put("/api/movies/{id}", id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("123"))
+                .andExpect(jsonPath("$.title").value("Updated Movie"))
                 .andExpect(jsonPath("$.genre").value("Action"));
     }
 }

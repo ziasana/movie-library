@@ -10,6 +10,8 @@ import MovieDetailsPage from "./pages/MovieDetailsPage.tsx";
 import ProtectedPages from "./components/ProtectedPages.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import EditMovie from "./pages/Movie/edit.tsx";
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
                       <Route path="/movie" element={<Movies />} />
                       <Route path="/movie/add" element={<Add />} />
                       <Route path={"/movies/:publicId"} element={<MovieDetailsPage/>}/>
+                      <Route path={"/movies/edit/:id"} element={<EditMovie/>}/>
                   </Route>
                   <Route path="/login" element={<Login />} />
                   <Route path="/logout"  />

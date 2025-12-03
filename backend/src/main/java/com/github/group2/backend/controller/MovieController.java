@@ -39,9 +39,9 @@ public class MovieController {
         movieService.deleteMovie(publicId);
     }
 
-    @PostMapping("/{publicId}")
-    public Movie updateMovie(@PathVariable String publicId, @RequestBody MovieDTO movieDTO) {
-        return null;
+    @PutMapping("/{id}")
+    public Movie updateMovie(@PathVariable String id, @RequestBody MovieDTO movieDto) {
+        return movieService.updateMovie(id, movieDto);
     }
 
 }
