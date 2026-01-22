@@ -6,7 +6,7 @@
 ![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=ziatest_movie-library)
 ![Docker](https://img.shields.io/docker/pulls/microman49/movie-lib?logo=docker)
 
-Java-Projekt zur Verwaltung einer Movie Library.
+Full-stack movie library app for browsing, searching, and managing movies using modern web technologies.
 
 ## 🚀 Technologien
 - Java 21
